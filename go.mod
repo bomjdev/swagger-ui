@@ -1,4 +1,4 @@
-module swagger-ui
+module github.com/bomjdev/swagger-ui
 
 go 1.23.4
 

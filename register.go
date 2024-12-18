@@ -1,9 +1,10 @@
-package swagger_ui
+package swaggerui
 
 import (
 	_ "embed"
-	"github.com/labstack/echo/v4"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 
 	"github.com/getkin/kin-openapi/openapi3"
 )
