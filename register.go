@@ -4,9 +4,8 @@ import (
 	_ "embed"
 	"net/http"
 
-	"github.com/labstack/echo/v4"
-
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/labstack/echo/v4"
 )
 
 func Register(e *echo.Echo, spec *openapi3.T) {
