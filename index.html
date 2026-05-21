@@ -14,7 +14,7 @@
 <script>
     window.onload = () => {
         window.ui = SwaggerUIBundle({
-            url: '../spec.json',
+            url: new URL('../spec.json', window.location.href).href,
             dom_id: '#swagger-ui',
             deepLinking: true,
             presets: [
