@@ -1,7 +1,6 @@
 package swaggerui
 
 import (
-	_ "embed"
 	"net/http"
 
 	"github.com/getkin/kin-openapi/openapi3"
@@ -9,17 +8,10 @@ import (
 )
 
 func Register(e *echo.Echo, spec *openapi3.T) {
-	e.GET("/spec.json", specHandlerFactory(spec))
+	e.GET("/spec.json", func(c echo.Context) error {
+		return c.JSON(http.StatusOK, spec)
+	})
 	e.GET("/docs", func(c echo.Context) error {
-		return c.HTML(http.StatusOK, swaggerHTML)
+		return c.HTML(http.StatusOK, SwaggerHTML)
 	})
 }
-
-func specHandlerFactory(spec *openapi3.T) echo.HandlerFunc {
-	return func(c echo.Context) error {
-		return c.JSON(http.StatusOK, spec)
-	}
-}
-
-//go:embed index.html
-var swaggerHTML string
